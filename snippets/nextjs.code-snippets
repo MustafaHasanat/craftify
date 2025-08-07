@@ -1,0 +1,32 @@
+{
+  "Next.js Server Page": {
+    "prefix": "nxtsp",
+    "body": [
+      "import { getAppMetadata } from '@/constants';",
+      "import { Lang } from '@/types';",
+      "import { getDictionary } from '@/utils';",
+      "",
+      "interface PageProps {",
+      "  params: Promise<{ lang: Lang }>;",
+      "}",
+      "",
+      "export async function generateMetadata({ params }: PageProps) {",
+      "  const { lang } = await params;",
+      "  const locale = getDictionary(lang);",
+      "",
+      "  return {",
+      "    ...getAppMetadata(lang, locale),",
+      "  };",
+      "}",
+      "",
+      "export default async function Page({ params }: PageProps) {",
+      "  const { lang } = await params;",
+      "  const locale = getDictionary(lang);",
+      "",
+      "  return <section></section>;",
+      "}",
+      ""
+    ],
+    "description": "Insert a Next.js server page with the essentials"
+  }
+}

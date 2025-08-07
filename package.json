@@ -1,0 +1,24 @@
+{
+  "name": "craftify",
+  "displayName": "Craftify",
+  "description": "Ship Next.js projects 10x faster using common snippets.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/nextjs.code-snippets"
+      }
+    ]
+  }
+}
