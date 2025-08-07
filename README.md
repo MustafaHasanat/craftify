@@ -32,11 +32,11 @@ None
 
 ## Release Notes
 
-### 0.0.1
+### 1.0.0
 
 Initial release of Craftify
 
-### 1.0.0
+### 1.0.1
 
 First official stable version
 
