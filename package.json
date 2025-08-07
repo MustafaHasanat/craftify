@@ -2,7 +2,8 @@
   "name": "craftify",
   "displayName": "Craftify",
   "description": "Ship Next.js projects 10x faster using common snippets.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "MustafaAlhasanat",
   "engines": {
     "vscode": "^1.102.0"
   },
@@ -18,7 +19,62 @@
       {
         "language": "typescript",
         "path": "./snippets/nextjs.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/nextjs.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/nextjs.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/nextjs.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/hero-ui.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/hero-ui.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/hero-ui.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/hero-ui.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/tanstack.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/tanstack.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/tanstack.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/tanstack.code-snippets"
+      },
+      {
+        "language": "prisma",
+        "path": "./snippets/prisma.code-snippets"
       }
     ]
+  },
+  "scripts": {
+    "install": "code --install-extension craftify-0.0.1.vsix",
+    "package": "vsce package",
+    "globalize": "yarn run package & yarn run install",
+    "acp": "git add . && git commit -m 'feat: adding features' && git push",
+    "publish": "vsce publish"
   }
 }

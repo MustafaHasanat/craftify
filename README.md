@@ -32,6 +32,13 @@ None
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release of Craftify
+
+### 1.0.0
+
+First official stable version
+
+- Next.js server page and layout snippets
+- Adding Prisma snippets

@@ -1,0 +1,75 @@
+{
+  "Prisma Configuration Setup": {
+    "prefix": "pcs",
+    "body": [
+      "//? ------------- Database Configurations -------------",
+      "",
+      "generator client {",
+      "  provider = 'prisma-client-js'",
+      "}",
+      "",
+      "datasource db {",
+      "  provider = 'postgresql'",
+      "  url      = env('DATABASE_URL')",
+      "}",
+      ""
+    ],
+    "description": "Insert the configuration needed to initialize Prisma"
+  },
+  "Prisma New Table": {
+    "prefix": "pnt",
+    "body": [
+      "//? ------------- ${1:Name} Table -------------",
+      "// stores the ${1:Name} record data",
+      "",
+      "model ${1:Name} {",
+      "  id              String           @id @default(uuid())",
+      "  // ${1:Name} details",
+      "",
+      "  // time-based data",
+      "  createdAt       DateTime         @default(now())",
+      "  updatedAt       DateTime         @default(now())",
+      "  // relational fields",
+      "}"
+    ],
+    "description": "Insert the essentials for defining a new table in Prisma schema"
+  },
+  "Prisma One-To-Many": {
+    "prefix": "potm",
+    "body": [
+      "  // for the (one) table ",
+      "  ${1:TableNameSrc}       ${1:TableNameSrc}        @relation(fields: [${1:TableNameSrc}Id], references: [id], onDelete: Cascade)",
+      "  ${1:TableNameSrc}Id     String",
+      "  ",
+      "  // for the (many) table",
+      "  ${2:TableNameDest}s     ${2:TableNameDest}[]",
+      ""
+    ],
+    "description": "Insert a one-to-many handlers to create the relation in Prisma table"
+  },
+  "Prisma Many-To-Many": {
+    "prefix": "pmtm",
+    "body": [
+      "//? ------------- ${1:Table1}${2:Table2} Table -------------",
+      "// stores the ${1:Table1}${2:Table2} record data",
+      "model ${1:Table1}${2:Table2} {",
+      "  // time-based data",
+      "  createdAt       DateTime   @default(now())",
+      "  updatedAt       DateTime   @default(now())",
+      "  // many-to-one IDs",
+      "  ${1:Table1}Id   String",
+      "  ${2:Table2}Id   String",
+      "  // many-to-one objects",
+      "  ${1:Table1}   ${1:Table1} @relation(fields: [${1:Table1}Id], references: [id], onDelete: Cascade)",
+      "  ${2:Table2}   ${2:Table2} @relation(fields: [${2:Table2}Id], references: [id], onDelete: Cascade)",
+      "",
+      "  @@id([${1:Table1}Id, ${2:Table2}Id]) // Composite primary key: This prevents duplicate rows with the same (${1:Table1}Id, ${2:Table2}Id) pair at the database level.",
+      "}",
+      "",
+      "// add this to each table",
+      "${1:Table1}${2:Table2}s ${1:Table1}${2:Table2}[]",
+      ""
+    ],
+    "description": "Insert a many-to-many handlers to create the relation in Prisma tables"
+  }
+}
