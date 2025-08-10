@@ -1,6 +1,6 @@
 {
   "Prisma Configuration Setup": {
-    "prefix": "pcs",
+    "prefix": "c-pcs",
     "body": [
       "//? ------------- Database Configurations -------------",
       "",
@@ -17,7 +17,7 @@
     "description": "Insert the configuration needed to initialize Prisma"
   },
   "Prisma New Table": {
-    "prefix": "pnt",
+    "prefix": "c-pnt",
     "body": [
       "//? ------------- ${1:Name} Table -------------",
       "// stores the ${1:Name} record data",
@@ -35,7 +35,7 @@
     "description": "Insert the essentials for defining a new table in Prisma schema"
   },
   "Prisma One-To-Many": {
-    "prefix": "potm",
+    "prefix": "c-potm",
     "body": [
       "  // for the (one) table ",
       "  ${1:TableNameSrc}       ${1:TableNameSrc}        @relation(fields: [${1:TableNameSrc}Id], references: [id], onDelete: Cascade)",
@@ -48,7 +48,7 @@
     "description": "Insert a one-to-many handlers to create the relation in Prisma table"
   },
   "Prisma Many-To-Many": {
-    "prefix": "pmtm",
+    "prefix": "c-pmtm",
     "body": [
       "//? ------------- ${1:Table1}${2:Table2} Table -------------",
       "// stores the ${1:Table1}${2:Table2} record data",
@@ -71,5 +71,74 @@
       ""
     ],
     "description": "Insert a many-to-many handlers to create the relation in Prisma tables"
+  },
+  "Zustand New Store": {
+    "prefix": "c-zns",
+    "body": [
+      "import { create } from 'zustand';",
+      "import { createJSONStorage, persist } from 'zustand/middleware';",
+      "",
+      "export interface ${1:PascalName}StoreState {",
+      "  ${2:CamelName}: boolean;",
+      "  isHydrated: boolean;",
+      "  set${1:PascalName}: (${2:CamelName}: boolean) => void;",
+      "  setIsHydrated: (value: boolean) => void;",
+      "}",
+      "",
+      "const getInitialState = (set: {",
+      "  (",
+      "    state: ${1:PascalName}StoreState | ((state: ${1:PascalName}StoreState) => ${1:PascalName}StoreState)",
+      "  ): void;",
+      "}): ${1:PascalName}StoreState => ({",
+      "  ${2:CamelName}: false,",
+      "  isHydrated: false,",
+      "  set${1:PascalName}: (${2:CamelName}) => {",
+      "    set((state) => ({",
+      "      ...state,",
+      "      ${2:CamelName},",
+      "    }));",
+      "  },",
+      "  setIsHydrated: (isHydrated) => {",
+      "    set((state) => ({ ...state, isHydrated }));",
+      "  },",
+      "});",
+      "",
+      "export const use${1:PascalName}Store = create<${1:PascalName}StoreState>()(",
+      "  persist((set) => getInitialState(set), {",
+      "    name: '${2:CamelName}-storage',",
+      "    storage: createJSONStorage(() => localStorage),",
+      "    onRehydrateStorage: () => (state) => {",
+      "      if (state) {",
+      "        state.setIsHydrated(true); // This will be called when the persisted state is hydrated",
+      "      }",
+      "    },",
+      "  })",
+      ");",
+      ""
+    ],
+    "description": "Insert a Zustand store boilerplate "
+  },
+  "Button-Iconify Component": {
+    "prefix": "c-bicn",
+    "body": [
+      "<Button",
+      "  color='primary'",
+      "  isIconOnly={false}",
+      "  startContent={",
+      "    <Icon",
+      "      icon={Icons.${1:ICON}}",
+      "      className='pointer-events-none size-5'",
+      "    />",
+      "  }",
+      ">",
+      "  <p className=''>{locale}</p>",
+      "</Button>"
+    ],
+    "description": "Insert a button with an Iconify starting component"
+  },
+  "Iconify Component": {
+    "prefix": "c-icn",
+    "body": ["<Icon icon={Icons.${1:ICON}} className='size-5' />"],
+    "description": "Insert an Iconify starting component"
   }
 }
