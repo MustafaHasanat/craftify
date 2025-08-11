@@ -32,9 +32,13 @@ None
 
 ## Release Notes
 
-### 1.0.0
+### 1.2.0
 
-Initial release of Craftify
+- Adding Next.js essential snippets
+
+### 1.1.0
+
+- Adding TanStack snippets
 
 ### 1.0.1
 
@@ -42,3 +46,7 @@ First official stable version
 
 - Next.js server page and layout snippets
 - Adding Prisma snippets
+
+### 1.0.0
+
+Initial release of Craftify

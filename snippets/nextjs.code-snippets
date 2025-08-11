@@ -221,11 +221,107 @@
     ],
     "description": "Server side getter action to get paginated records"
   },
-  "Full Paginated Listings": {},
-  "Image Component": {},
-  "Page Container": {},
-  "Heading Container": {},
-  "Sub Heading Container": {},
-  "Paragraph Container": {},
-  "New Database Model": {}
+  "Full Paginated Listings": {
+    "prefix": "c-fpl",
+    "body": [
+      "  const { data, isRefetching, isLoading, isFetching, Pagination } =",
+      "    usePaginatedData<PaginationParams, CustomPaginatedResponse<${1:PascalName}>>({",
+      "      useGetterFn: useGet${1:PascalName}s,",
+      "      params: { pageSize: PageSizes.${2:CamelName}s },",
+      "      pageSize: PageSizes.${2:CamelName}s,",
+      "    });",
+      "",
+      "  const loadingState =",
+      "    isLoading || isRefetching || isFetching ? 'loading' : 'idle';",
+      "",
+      "  const loadingIsActive = loadingState === 'loading'",
+      "",
+      "  return (",
+      "    <section className='flex flex-col justify-center gap-3'>",
+      "      <div className='grid gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5'>",
+      "        {loadingIsActive",
+      "          ? Array.from({ length: PageSizes.${2:CamelName}s })",
+      "              .fill(0)",
+      "              .map((_, index) => (",
+      "                <Skeleton",
+      "                  key={'skeleton' + index}",
+      "                  className='h-32 w-full rounded-lg'",
+      "                />",
+      "              ))",
+      "          : data?.payload?.map((${2:CamelName}) => (",
+      "              <${1:PascalName}Card key={${2:CamelName}?.id} ${2:CamelName}={${2:CamelName}} />",
+      "            ))}",
+      "      </div>",
+      "",
+      "      <Pagination />",
+      "    </section>",
+      "  );"
+    ],
+    "description": "Insert the pagination getter and listings map"
+  },
+  "New Database Model": {
+    "prefix": "c-ndm",
+    "body": [
+      "import { User } from './users';",
+      "",
+      "export type ${1:PascalName} = {",
+      "  id: string;",
+      "  // record details",
+      "  // time-based data",
+      "  createdAt: Date;",
+      "  updatedAt: Date;",
+      "  // relations",
+      "};",
+      "",
+      "export type Create${1:PascalName} = Omit<${1:PascalName}, 'id' | 'createdAt' | 'updatedAt'>;",
+      "",
+      "export type Update${1:PascalName} = Omit<",
+      "  Partial<${1:PascalName}>,",
+      "  'id' | 'createdAt' | 'updatedAt'",
+      ">;",
+      ""
+    ],
+    "description": "Insert the model type boilerplate for a database table"
+  },
+  "Page Container": {
+    "prefix": "c-pc",
+    "body": [
+      "<div className='w-full flex flex-col gap-5 px-5 py-20'>",
+      "  <section className='container mx-auto flex w-full flex-col gap-5'>",
+      "    <h1 className='text-center text-3xl font-bold lg:text-start'>{locale}</h1>",
+      "    <h2 className='text-center text-lg lg:text-start'>{locale}</h2>",
+      "  </section>",
+      "</div>",
+      ""
+    ],
+    "description": "Insert a page container structure"
+  },
+  "Heading Container": {
+    "prefix": "c-hc",
+    "body": [
+      "<h1 className='text-center text-3xl font-bold lg:text-start'>{locale}</h1>"
+    ],
+    "description": "Insert a heading to the page"
+  },
+  "Sub Heading Container": {
+    "prefix": "c-shc",
+    "body": [
+      "<h2 className='text-center text-lg lg:text-start'>{locale}</h2>",
+      ""
+    ],
+    "description": "Insert a sub-heading to the page"
+  },
+  "Image Component": {
+    "prefix": "c-img",
+    "body": [
+      "<Image",
+      "    src={''}",
+      "    alt=''",
+      "    priority",
+      "    width={500}",
+      "    height={500}",
+      "/>"
+    ],
+    "description": "Insert a Next.js image component"
+  }
 }
