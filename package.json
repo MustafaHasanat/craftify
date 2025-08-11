@@ -2,7 +2,7 @@
   "name": "craftify",
   "displayName": "Craftify",
   "description": "Ship Next.js projects 10x faster using common snippets.",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "publisher": "MustafaAlhasanat",
   "engines": {
     "vscode": "^1.102.0"
@@ -83,6 +83,22 @@
       {
         "language": "javascriptreact",
         "path": "./snippets/tools.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/forms.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/forms.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/forms.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/forms.code-snippets"
       }
     ]
   },
