@@ -1,6 +1,6 @@
 {
   "Prisma Configuration Setup": {
-    "prefix": "c-pcs",
+    "prefix": "cpcs",
     "body": [
       "//? ------------- Database Configurations -------------",
       "",
@@ -17,7 +17,7 @@
     "description": "Insert the configuration needed to initialize Prisma"
   },
   "Prisma New Table": {
-    "prefix": "c-pnt",
+    "prefix": "cpnt",
     "body": [
       "//? ------------- ${1:Name} Table -------------",
       "// stores the ${1:Name} record data",
@@ -35,7 +35,7 @@
     "description": "Insert the essentials for defining a new table in Prisma schema"
   },
   "Prisma One-To-Many": {
-    "prefix": "c-potm",
+    "prefix": "cpotm",
     "body": [
       "  // for the (one) table ",
       "  ${1:TableNameSrc}       ${1:TableNameSrc}        @relation(fields: [${1:TableNameSrc}Id], references: [id], onDelete: Cascade)",
@@ -48,7 +48,7 @@
     "description": "Insert a one-to-many handlers to create the relation in Prisma table"
   },
   "Prisma Many-To-Many": {
-    "prefix": "c-pmtm",
+    "prefix": "cpmtm",
     "body": [
       "//? ------------- ${1:Table1}${2:Table2} Table -------------",
       "// stores the ${1:Table1}${2:Table2} record data",
@@ -73,7 +73,7 @@
     "description": "Insert a many-to-many handlers to create the relation in Prisma tables"
   },
   "Zustand New Store": {
-    "prefix": "c-zns",
+    "prefix": "czns",
     "body": [
       "import { create } from 'zustand';",
       "import { createJSONStorage, persist } from 'zustand/middleware';",
@@ -119,7 +119,7 @@
     "description": "Insert a Zustand store boilerplate "
   },
   "Button-Iconify Component": {
-    "prefix": "c-bicn",
+    "prefix": "cbicn",
     "body": [
       "<Button",
       "  color='primary'",
@@ -137,7 +137,7 @@
     "description": "Insert a button with an Iconify starting component"
   },
   "Iconify Component": {
-    "prefix": "c-icn",
+    "prefix": "cicn",
     "body": ["<Icon icon={Icons.${1:ICON}} className='size-5' />"],
     "description": "Insert an Iconify starting component"
   }

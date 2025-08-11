@@ -1,6 +1,6 @@
 {
   "TanStack Get-One": {
-    "prefix": "c-tsgo",
+    "prefix": "ctsgo",
     "body": [
       "'use client';",
       "",
@@ -34,7 +34,7 @@
     "description": "Insert a TanStack hook to get a record details"
   },
   "TanStack Get-Paginated": {
-    "prefix": "c-tsgp",
+    "prefix": "ctsgp",
     "body": [
       "'use client';",
       "",
@@ -68,7 +68,7 @@
     "description": "Insert a TanStack hook to get a paginated response of records"
   },
   "TanStack Create": {
-    "prefix": "c-tsc",
+    "prefix": "ctsc",
     "body": [
       "'use client';",
       "",
@@ -97,7 +97,7 @@
     "description": "Insert a TanStack hook to create a new record"
   },
   "TanStack Update": {
-    "prefix": "c-tsu",
+    "prefix": "ctsu",
     "body": [
       "'use client';",
       "",
@@ -128,7 +128,7 @@
     "description": "Insert a TanStack hook to update a record"
   },
   "TanStack Delete": {
-    "prefix": "c-tsd",
+    "prefix": "ctsd",
     "body": [
       "'use client';",
       "",

@@ -1,6 +1,6 @@
 {
   "Server Page": {
-    "prefix": "c-sp",
+    "prefix": "csp",
     "body": [
       "import { getAppMetadata } from '@/constants';",
       "import { Lang } from '@/types';",
@@ -30,7 +30,7 @@
     "description": "Insert a Next.js server page with the essentials"
   },
   "Server Layout": {
-    "prefix": "c-sl",
+    "prefix": "csl",
     "body": [
       "import { i18n } from '@/configs';",
       "import { Lang } from '@/types';",
@@ -83,7 +83,7 @@
     "description": "Insert a Next.js server layout with the essentials"
   },
   "Get-One Action": {
-    "prefix": "c-goa",
+    "prefix": "cgoa",
     "body": [
       "'use server';",
       "",
@@ -146,7 +146,7 @@
     "description": "Server side getter action to get a single record details"
   },
   "Get-Paginated Action": {
-    "prefix": "c-gpa",
+    "prefix": "cgpa",
     "body": [
       "'use server';",
       "",
@@ -222,7 +222,7 @@
     "description": "Server side getter action to get paginated records"
   },
   "Full Paginated Listings": {
-    "prefix": "c-fpl",
+    "prefix": "cfpl",
     "body": [
       "  const { data, isRefetching, isLoading, isFetching, Pagination } =",
       "    usePaginatedData<PaginationParams, CustomPaginatedResponse<${1:PascalName}>>({",
@@ -260,7 +260,7 @@
     "description": "Insert the pagination getter and listings map"
   },
   "New Database Model": {
-    "prefix": "c-ndm",
+    "prefix": "cndm",
     "body": [
       "import { User } from './users';",
       "",
@@ -284,7 +284,7 @@
     "description": "Insert the model type boilerplate for a database table"
   },
   "Page Container": {
-    "prefix": "c-pc",
+    "prefix": "cpc",
     "body": [
       "<div className='w-full flex flex-col gap-5 px-5 py-20'>",
       "  <section className='container mx-auto flex w-full flex-col gap-5'>",
@@ -297,14 +297,14 @@
     "description": "Insert a page container structure"
   },
   "Heading Container": {
-    "prefix": "c-hc",
+    "prefix": "chc",
     "body": [
       "<h1 className='text-center text-3xl font-bold lg:text-start'>{locale}</h1>"
     ],
     "description": "Insert a heading to the page"
   },
   "Sub Heading Container": {
-    "prefix": "c-shc",
+    "prefix": "cshc",
     "body": [
       "<h2 className='text-center text-lg lg:text-start'>{locale}</h2>",
       ""
@@ -312,7 +312,7 @@
     "description": "Insert a sub-heading to the page"
   },
   "Image Component": {
-    "prefix": "c-img",
+    "prefix": "cimg",
     "body": [
       "<Image",
       "    src={''}",
