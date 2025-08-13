@@ -82,6 +82,24 @@
     ],
     "description": "Insert a Next.js server layout with the essentials"
   },
+  "Client Page": {
+    "prefix": "ccp",
+    "body": [
+      "'use client';",
+      "",
+      "import { useLocale } from '@/hooks';",
+      "",
+      "type ${1:Name}PageProps = {};",
+      "",
+      "export function ${1:Name}Page({}: ${1:Name}PageProps) {",
+      "  const { locale } = useLocale();",
+      "",
+      "  return <section></section>;",
+      "}",
+      ""
+    ],
+    "description": "Insert a client side page"
+  },
   "Get-One Action": {
     "prefix": "cgoa",
     "body": [

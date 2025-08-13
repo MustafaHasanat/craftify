@@ -1,9 +1,155 @@
 {
-  "Zod Schema": {},
-  "Full Form": {},
-  "Input Component": {},
-  "Multilingual Input Component": {},
-  "Autocomplete Component": {},
-  "Select Component": {},
-  "TextArea Component": {},
+  "Zod Schema": {
+    "prefix": "czs",
+    "body": [
+      "import { ar } from '@/locales';",
+      "import { Dictionary } from '@/types';",
+      "import * as z from 'zod';",
+      "",
+      "export const ${2:CamelName}Schema = (locale: Dictionary) => z.object({});",
+      "",
+      "// eslint-disable-next-line @typescript-eslint/no-unused-vars",
+      "const dummy = ${2:CamelName}Schema(ar);",
+      "",
+      "export type ${1:PascalName}Schema = z.infer<typeof dummy>;",
+      ""
+    ],
+    "description": "Insert a Zod schema with its type"
+  },
+  "Custom Input Component": {
+    "prefix": "ccic",
+    "body": [
+      "<CustomInput",
+      "  control={control}",
+      "  name={locale.forms.${1:Name}.name}",
+      "  label={locale.forms.${1:Name}.label}",
+      "  errorMessage={locale.global.requiredField}",
+      "  placeholder={locale.forms.${1:Name}.placeholder}",
+      "  className=''",
+      "/>"
+    ],
+    "description": "Insert a useForm-controlled custom input component"
+  },
+  "Multilingual Input Component": {
+    "prefix": "cmic",
+    "body": [
+      "<MultiLingualInput",
+      "  control={control}",
+      "  nameAr={locale.forms.${1:Name}.nameAr}",
+      "  nameEn={locale.forms.${1:Name}.nameEn}",
+      "  label={locale.forms.${1:Name}.label}",
+      "  errorMessage={locale.global.requiredField}",
+      "  inputType='input'",
+      "  defaultExpandedKeys={['lang']}",
+      "  isRequiredAr",
+      "  isRequiredEn",
+      "/>"
+    ],
+    "description": "Insert a multi-lingual custom input component"
+  },
+  "Custom TextArea Component": {
+    "prefix": "cctac",
+    "body": [
+      "<CustomTextarea",
+      "  control={control}",
+      "  name={locale.forms.${1:Name}.name}",
+      "  label={locale.forms.${1:Name}.label}",
+      "  errorMessage={locale.global.requiredField}",
+      "  maxRows={10}",
+      "  className=''",
+      "/>"
+    ],
+    "description": "Insert a useForm-controlled custom text area component"
+  },
+  "Custom Autocomplete Component": {
+    "prefix": "ccacc",
+    "body": [
+      "export const getOptions = (",
+      "  locale: Dictionary,",
+      "): AutocompleteOption[] => [",
+      "  {",
+      "    id: ${2:Enum},",
+      "    label: locale.forms.${1:Name}.options.option1,",
+      "  },",
+      "];",
+      "",
+      "<CustomAutocomplete",
+      "  control={control}",
+      "  name={locale.forms.${1:Name}.name}",
+      "  label={locale.forms.${1:Name}.label}",
+      "  errorMessage={locale.global.requiredField}",
+      "  options={getOptions(locale)}",
+      "/>"
+    ],
+    "description": "Insert a useForm-controlled custom auto-complete input component"
+  },
+  "Custom Select Component": {
+    "prefix": "ccsc",
+    "body": [
+      "export const getOptions = (",
+      "  locale: Dictionary,",
+      "): SelectOption[] => [",
+      "  {",
+      "    id: ${2:Enum},",
+      "    label: locale.forms.${1:Name}.options.option1,",
+      "  },",
+      "];",
+      "",
+      "<CustomSelect",
+      "  control={control}",
+      "  name={locale.forms.${1:Name}.name}",
+      "  label={locale.forms.${1:Name}.label}",
+      "  placeholder={locale.forms.${1:Name}.placeholder}",
+      "  options={getOptions(locale)}",
+      "/>"
+    ],
+    "description": "Insert a useForm-controlled custom select input component "
+  },
+  "Full Form": {
+    "prefix": "cff",
+    "body": [
+      "const { mutateAsync, isPending } = use${1:MutateFunction}();",
+      "",
+      "const { control, handleSubmit } = useForm<${2:SchemaType}Schema>({",
+      "  mode: 'all',",
+      "  resolver: zodResolver(${3:SchemaName}Schema(locale)),",
+      "});",
+      "",
+      "async function onSubmit(data: ${2:SchemaType}Schema) {",
+      "  const response = await mutateAsync(data);",
+      "",
+      "  if (response?.status === 200) {",
+      "    addToast({",
+      "      title: response?.message || locale.toasts.processCompletedSuccessfully,",
+      "      color: 'success',",
+      "    });",
+      "  } else",
+      "    addToast({",
+      "      title: response?.message || locale.toasts.unexpectedError,",
+      "      color: 'danger',",
+      "    });",
+      "}",
+      "",
+      "<form",
+      "  className='flex flex-col gap-5 px-10 py-5'",
+      "  onSubmit={handleSubmit(onSubmit)}",
+      ">",
+      "  <Button",
+      "    type='submit'",
+      "    isLoading={isPending}",
+      "  >",
+      "    {locale.global.submit}",
+      "  </Button>",
+      "",
+      "  <Button",
+      "    type='button'",
+      "    isDisabled={isPending}",
+      "    disabled={isPending}",
+      "  >",
+      "    {locale.global.cancel}",
+      "  </Button>",
+      "</form>"
+    ],
+    "description": "Insert a full form with useForm"
+  }
 }
