@@ -37,11 +37,11 @@
   "Prisma One-To-Many": {
     "prefix": "cpotm",
     "body": [
-      "  // for the (one) table ",
+      "  // for the (many) table ",
       "  ${1:TableNameSrc}       ${1:TableNameSrc}        @relation(fields: [${1:TableNameSrc}Id], references: [id], onDelete: Cascade)",
       "  ${1:TableNameSrc}Id     String",
       "  ",
-      "  // for the (many) table",
+      "  // for the (one) table",
       "  ${2:TableNameDest}s     ${2:TableNameDest}[]",
       ""
     ],
