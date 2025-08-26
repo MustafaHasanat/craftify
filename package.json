@@ -2,7 +2,7 @@
   "name": "craftify",
   "displayName": "Craftify",
   "description": "Ship Next.js projects 10x faster using common snippets.",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "publisher": "MustafaAlhasanat",
   "engines": {
     "vscode": "^1.102.0"
