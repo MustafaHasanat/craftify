@@ -282,8 +282,6 @@
   "New Database Model": {
     "prefix": "cndm",
     "body": [
-      "import { User } from './users';",
-      "",
       "export type ${1:PascalName} = {",
       "  id: string;",
       "  // record details",
